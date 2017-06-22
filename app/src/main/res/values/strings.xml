@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MisContactos</string>
+    <string name="nombre">Nombre Muestra</string>
+    <string name="telefono">55 5555 5555</string>
+    <string name="email">ejemplo@dominio.com</string>
+    <string name="pnombre">Nombre</string>
+    <string name="ptelefono">Teléfono</string>
+    <string name="pemail">Email</string>
+</resources>
