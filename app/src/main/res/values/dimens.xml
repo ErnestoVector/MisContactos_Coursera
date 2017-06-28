@@ -7,4 +7,5 @@
     <dimen name="top1">20dp</dimen>
     <dimen name="top2">5dp</dimen>
     <dimen name="icono_texto">10dp</dimen>
+    <dimen name="corner_radius_cv">4dp</dimen>
 </resources>
