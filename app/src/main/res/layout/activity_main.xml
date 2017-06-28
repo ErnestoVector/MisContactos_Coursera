@@ -7,11 +7,16 @@
     android:layout_height="match_parent"
     tools:context="ml.ernestovector.miscontactos.MainActivity">
 
-    <ListView
+    <!-- <ListView
         android:id="@+id/lstContactos"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </ListView>
+    </ListView> -->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvContactos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

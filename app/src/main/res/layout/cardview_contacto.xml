@@ -8,4 +8,35 @@
     android:layout_marginBottom="@dimen/top1"
     card_view:cardCornerRadius="@dimen/corner_radius_cv">
 
+    <!-- Se inicia la tarjeta -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        
+        <!-- Imagen de la tarjeta -->
+        <ImageView
+            android:id="@+id/imgFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/coleos" />
+
+        <!-- Texto para Nombre -->
+        <TextView
+            android:id="@+id/tvNombreCV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pnombre"
+            android:textSize="@dimen/telefono"
+            android:textStyle="bold"/>
+
+        <!-- Texto para Telefono -->
+        <TextView
+            android:id="@+id/tvTelefonoCV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ptelefono" />
+        
+    </LinearLayout>
+
 </android.support.v7.widget.CardView>
