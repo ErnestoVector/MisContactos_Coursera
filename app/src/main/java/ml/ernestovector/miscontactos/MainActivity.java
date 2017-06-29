@@ -21,17 +21,18 @@ public class MainActivity extends AppCompatActivity {
 
         contactos = new ArrayList<Contacto>();
 
-        contactos.add(new Contacto("Ernesto Gálvez", "55 3332 2391", "egm.vector@gmail.com"));
-        contactos.add(new Contacto("Anahí Salgado", "55 7777 9999", "anahi@gmail.com"));
-        contactos.add(new Contacto("Lori Martínez", "55 2256 3487", "lori-carolina@hotmail.com"));
-        contactos.add(new Contacto("Estefani Monroy", " 55 1845 7222", "fanny.monroy2204@gmail.com"));
-        contactos.add(new Contacto("Carlos Guerrero", "55 2300 2300", "carlitos@outlook.com"));
+        contactos.add(new Contacto(R.drawable.six_flags_s_perman,   "Ernesto Gálvez",  "55 3332 2391", "egm.vector@gmail.com"));
+        contactos.add(new Contacto(R.drawable.coleos1,              "Anahí Salgado",   "55 7777 9999", "anahi@gmail.com"));
+        contactos.add(new Contacto(R.drawable.snapdragon,           "Lori Martínez",   "55 2256 3487", "lori-carolina@hotmail.com"));
+        contactos.add(new Contacto(R.drawable.fanny,                "Estefani Monroy", "55 1845 7222", "fanny.monroy2204@gmail.com"));
+        contactos.add(new Contacto(R.drawable.dusty_miller,         "Carlos Guerrero", "55 2300 2300", "carlitos@outlook.com"));
 
         ArrayList<String> nombresContacto = new ArrayList<>();
         for (Contacto contacto: contactos) {
             nombresContacto.add(contacto.getNombre());
         }
 
+        /*
         ListView lstContactos = (ListView) findViewById(R.id.lstContactos);
         lstContactos.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombresContacto));
 
@@ -46,6 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(getResources().getString(R.string.pemail), contactos.get(position).getEmail());
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
