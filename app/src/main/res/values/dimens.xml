@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="nombre_contacto">33sp</dimen>
-    <dimen name="margenLados">5dp</dimen>
+    <dimen name="margenLados">8dp</dimen>
     <dimen name="telefono">20sp</dimen>
     <dimen name="correo">15sp</dimen>
     <dimen name="top1">20dp</dimen>
     <dimen name="top2">5dp</dimen>
     <dimen name="icono_texto">10dp</dimen>
-    <dimen name="corner_radius_cv">4dp</dimen>
+    <dimen name="corner_radius_cv">5dp</dimen>
+    <dimen name="card_largo">135dp</dimen>
 </resources>
