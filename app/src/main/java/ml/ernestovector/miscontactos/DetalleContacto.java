@@ -21,14 +21,14 @@ public class DetalleContacto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_contacto);
 
-        Bundle parametros = getIntent().getExtras();
-        String nombre = parametros.getString(getResources().getString(R.string.pnombre));//nombre
-        String telefono = parametros.getString(getResources().getString(R.string.ptelefono));//telefono
-        String email = parametros.getString(getResources().getString(R.string.pemail));//email
+        Bundle parametros   = getIntent().getExtras();
+        String nombre       = parametros.getString("Nombre");//nombre
+        String telefono     = parametros.getString("Telefono");//telefono
+        String email        = parametros.getString("Email");//email
 
-        tvNombre = (TextView) findViewById(R.id.tvNombre);
-        tvTelefono = (TextView) findViewById(R.id.tvTelefono);
-        tvEmail = (TextView) findViewById(R.id.tvEmail);
+        tvNombre    = (TextView) findViewById(R.id.tvNombre);
+        tvTelefono  = (TextView) findViewById(R.id.tvTelefono);
+        tvEmail     = (TextView) findViewById(R.id.tvEmail);
 
         tvNombre.setText(nombre);
         tvTelefono.setText(telefono);

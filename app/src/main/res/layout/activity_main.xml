@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ml.ernestovector.miscontactos.MainActivity">
+    tools:context="ml.ernestovector.miscontactos.MainActivity"
+    android:background="@color/colorBackground">
 
     <!--include
         android:id="@+id/miActionBar"
@@ -23,7 +24,6 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvContactos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/margenLados" />
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

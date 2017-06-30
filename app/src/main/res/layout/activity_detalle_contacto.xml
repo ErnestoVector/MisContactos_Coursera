@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="ml.ernestovector.miscontactos.DetalleContacto"
-    android:layout_marginStart="@dimen/margenLados"
-    android:layout_marginEnd="@dimen/margenLados">
+    android:background="@color/colorBackground"
+    android:padding="@dimen/margenLados">
 
     <TextView
         android:id="@+id/tvNombre"

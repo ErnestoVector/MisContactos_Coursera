@@ -1,5 +1,7 @@
 package ml.ernestovector.miscontactos;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,10 +17,12 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
 
     //Lista contactos
     ArrayList<Contacto> contactos;
+    Activity activity;
 
     //Método constructor
-    public ContactoAdaptador(ArrayList<Contacto> contactos){
+    public ContactoAdaptador(ArrayList<Contacto> contactos, Activity activity){
         this.contactos = contactos;
+        this.activity  = activity;
     }
 
 
@@ -34,10 +39,22 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     //Asocia cada elemento de la lista a cada view
     @Override
     public void onBindViewHolder(ContactoViewHolder contactoViewHolder, int position) {
-        Contacto contacto = contactos.get(position);
+        final Contacto contacto = contactos.get(position);
         contactoViewHolder.imgFoto.setImageResource(contacto.getFoto());
         contactoViewHolder.tvNombreCv.setText(contacto.getNombre());
         contactoViewHolder.tvTelefonoCV.setText(contacto.getTelefono());
+
+        contactoViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(activity, contacto.getNombre(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(activity, DetalleContacto.class);
+                intent.putExtra("Nombre", contacto.getNombre());
+                intent.putExtra("Telefono", contacto.getTelefono());
+                intent.putExtra("Email", contacto.getEmail());
+                activity.startActivity(intent);
+            }
+        });
     }
 
     //Cantidad de elementos que contiene mi lista
