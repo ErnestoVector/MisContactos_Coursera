@@ -6,8 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="ml.ernestovector.miscontactos.DetalleContacto"
-    android:background="@color/colorBackground"
-    android:padding="@dimen/margenLados">
+    android:background="@color/colorBackground" >
+
+    <include
+        android:id="@+id/miActionBar"
+        layout="@layout/actionbar">
+
+    </include>
 
     <TextView
         android:id="@+id/tvNombre"
@@ -15,14 +20,16 @@
         android:layout_height="wrap_content"
         android:text="@string/nombre"
         android:textStyle="bold"
-        android:textSize="@dimen/nombre_contacto"/>
+        android:textSize="@dimen/nombre_contacto"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/top1"
-        android:onClick="llamar">
+        android:onClick="llamar"
+        android:padding="@dimen/margenLados">
 
         <ImageView
             android:id="@+id/ivTelefono"
@@ -46,7 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/top2"
-        android:onClick="enviarMail">
+        android:onClick="enviarMail"
+        android:padding="@dimen/margenLados">
 
         <ImageView
             android:id="@+id/ivEmail"

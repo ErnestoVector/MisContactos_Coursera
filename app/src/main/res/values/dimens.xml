@@ -10,4 +10,6 @@
     <dimen name="corner_radius_cv">5dp</dimen>
     <dimen name="card_largo">135dp</dimen>
     <dimen name="likeIcon">38dp</dimen>
+    <dimen name="elevacionActionBar">4dp</dimen>
+    <dimen name="app_titulo">24sp</dimen>
 </resources>
