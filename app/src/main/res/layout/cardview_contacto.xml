@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Por motic¿vos estéticos en l apantalla final, se le agrego
+un relativeLayout para acomodar uniformenete los datos de la
+tarjeta -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -6,6 +9,7 @@
     android:layout_width="match_parent"
     android:padding="@dimen/margenLados">
 
+    <!-- Se declara la tarjeta -->
     <android.support.v7.widget.CardView
 
         android:id="@+id/cvContacto"
@@ -17,35 +21,61 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/colorCardView"
             android:orientation="vertical"
-            android:padding="@dimen/margenLados"
-            android:background="@color/colorCardView">
+            android:padding="@dimen/margenLados">
 
             <!-- Imagen de la tarjeta -->
             <ImageView
                 android:id="@+id/imgFoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
                 android:layout_gravity="center_horizontal"
-
+                android:scaleType="fitCenter"
                 android:src="@drawable/coleos" />
 
-            <!-- Texto para Nombre -->
-            <TextView
-                android:id="@+id/tvNombreCV"
-                android:layout_width="wrap_content"
+            <!-- Informacion de la tarjeta -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pnombre"
-                android:textSize="@dimen/telefono"
-                android:textStyle="bold"/>
+                android:orientation="horizontal"
+                android:gravity="fill">
 
-            <!-- Texto para Telefono -->
-            <TextView
-                android:id="@+id/tvTelefonoCV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ptelefono" />
+                <!-- Icono de like -->
+                <ImageButton
+                    android:id="@+id/btnLike"
+                    android:layout_width="@dimen/likeIcon"
+                    android:layout_height="@dimen/likeIcon"
+                    android:background="@drawable/like" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Texto para Nombre -->
+                    <TextView
+                        android:id="@+id/tvNombreCV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pnombre"
+                        android:textSize="@dimen/telefono"
+                        android:textStyle="bold"
+                        android:layout_gravity="right"/>
+
+                    <!-- Texto para Telefono -->
+                    <TextView
+                        android:id="@+id/tvTelefonoCV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ptelefono"
+                        android:layout_gravity="right"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
 

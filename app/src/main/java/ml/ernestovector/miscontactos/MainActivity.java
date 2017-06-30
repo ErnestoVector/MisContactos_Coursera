@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         listaContactos = (RecyclerView) findViewById(R.id.rvContactos);
 
-        GridLayoutManager glm = new GridLayoutManager(this, 2);
-        listaContactos.setLayoutManager(glm);
+        //GridLayoutManager glm = new GridLayoutManager(this, 2);
+        //listaContactos.setLayoutManager(glm);
 
         //Muestra los objetos en una lista scrolleable hacia abajo
-        //LinearLayoutManager llm = new LinearLayoutManager(this);
-        //llm.setOrientation(LinearLayoutManager.VERTICAL);
-        //listaContactos.setLayoutManager(llm);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        listaContactos.setLayoutManager(llm);
 
         inicializarListaContactos();
         inicializarAdaptador();
