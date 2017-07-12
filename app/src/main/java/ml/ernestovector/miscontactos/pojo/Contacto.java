@@ -1,4 +1,4 @@
-package ml.ernestovector.miscontactos;
+package ml.ernestovector.miscontactos.pojo;
 
 public class Contacto {
 

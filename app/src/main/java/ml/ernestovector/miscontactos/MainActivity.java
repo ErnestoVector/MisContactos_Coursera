@@ -1,37 +1,43 @@
 package ml.ernestovector.miscontactos;
 
-import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import ml.ernestovector.miscontactos.adapter.ContactoAdaptador;
+import ml.ernestovector.miscontactos.adapter.PageAdapter;
+import ml.ernestovector.miscontactos.fragment.Perfil;
+import ml.ernestovector.miscontactos.fragment.RecyclerViewFragment;
+import ml.ernestovector.miscontactos.pojo.Contacto;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Contacto> contactos;
-    private RecyclerView listaContactos;
+    private RecyclerView rvContactos;
     public ContactoAdaptador adaptador;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
-        setSupportActionBar(miActionBar);
+        //Conectamos el codigo con los elementos de la actividad
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        setUpViewPager();
 
-        //Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
-        //setSupportActionBar(miActionBar);
-
-        listaContactos = (RecyclerView) findViewById(R.id.rvContactos);
+        /*
+        rvContactos = (RecyclerView) findViewById(R.id.rvContactos);
 
         //GridLayoutManager glm = new GridLayoutManager(this, 2);
         //listaContactos.setLayoutManager(glm);
@@ -39,38 +45,42 @@ public class MainActivity extends AppCompatActivity {
         //Muestra los objetos en una lista scrolleable hacia abajo
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaContactos.setLayoutManager(llm);
+        rvContactos.setLayoutManager(llm);
 
         inicializarListaContactos();
         inicializarAdaptador();
+        */
 
-        /*
-        ArrayList<String> nombresContacto = new ArrayList<>();
-        for (Contacto contacto: contactos) {
-            nombresContacto.add(contacto.getNombre());
+        if (toolbar != null){
+            setSupportActionBar(toolbar);
         }
 
+    }
 
-        ListView lstContactos = (ListView) findViewById(R.id.lstContactos);
-        lstContactos.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombresContacto));
+    private ArrayList<Fragment> agregarFragments(){
+        //Creamos una lista de Fragments
+        ArrayList<Fragment> fragments = new ArrayList<>();
 
-        lstContactos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //Inicializamos los fragments en la lista
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new Perfil());
 
-                //Intent explicito
-                Intent intent = new Intent(MainActivity.this, DetalleContacto.class);
-                intent.putExtra(getResources().getString(R.string.pnombre), contactos.get(position).getNombre());
-                intent.putExtra(getResources().getString(R.string.ptelefono), contactos.get(position).getTelefono());
-                intent.putExtra(getResources().getString(R.string.pemail), contactos.get(position).getEmail());
-                startActivity(intent);
-            }
-        });*/
+        //regresamos la lista con los fragments
+        return fragments;
+    }
+
+    private void setUpViewPager(){
+        //Obtenemos el soporte y la lista de fragments en el view pager
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
+
+        //Agregamos los fragments al tabLayout
+        tabLayout.setupWithViewPager(viewPager);
+
     }
 
     public void inicializarAdaptador(){
         adaptador = new ContactoAdaptador(contactos, this);
-        listaContactos.setAdapter(adaptador);
+        rvContactos.setAdapter(adaptador);
     }
 
     public void inicializarListaContactos(){

@@ -1,8 +1,7 @@
-package ml.ernestovector.miscontactos;
+package ml.ernestovector.miscontactos.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import ml.ernestovector.miscontactos.pojo.Contacto;
+import ml.ernestovector.miscontactos.DetalleContacto;
+import ml.ernestovector.miscontactos.R;
 
 public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.ContactoViewHolder>{
 

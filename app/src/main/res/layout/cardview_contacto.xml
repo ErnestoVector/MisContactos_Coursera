@@ -15,7 +15,8 @@ tarjeta -->
         android:id="@+id/cvContacto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        card_view:cardCornerRadius="@dimen/corner_radius_cv">
+        card_view:cardCornerRadius="@dimen/corner_radius_cv"
+        android:elevation="@dimen/corner_radius_cv">
 
         <!-- Se inicia la tarjeta -->
         <LinearLayout
