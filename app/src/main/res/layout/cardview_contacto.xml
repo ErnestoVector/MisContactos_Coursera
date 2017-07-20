@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cvContacto"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/card_largo"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margenLados"
     card_view:cardBackgroundColor="@color/cardview_light_background"
