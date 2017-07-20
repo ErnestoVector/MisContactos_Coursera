@@ -1,84 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Por motic¿vos estéticos en l apantalla final, se le agrego
-un relativeLayout para acomodar uniformenete los datos de la
-tarjeta -->
-<RelativeLayout
+    <!-- Se declara la tarjeta -->
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_height="wrap_content"
+    android:id="@+id/cvContacto"
     android:layout_width="match_parent"
-    android:padding="@dimen/margenLados">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margenLados"
+    card_view:cardBackgroundColor="@color/cardview_light_background"
+    card_view:cardCornerRadius="@dimen/corner_radius_cv"
+    android:elevation="@dimen/corner_radius_cv">
 
-    <!-- Se declara la tarjeta -->
-    <android.support.v7.widget.CardView
-
-        android:id="@+id/cvContacto"
+    <!-- Se inicia la tarjeta -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        card_view:cardCornerRadius="@dimen/corner_radius_cv"
-        android:elevation="@dimen/corner_radius_cv">
+        android:orientation="vertical"
+        android:padding="@dimen/margenLados">
 
-        <!-- Se inicia la tarjeta -->
-        <LinearLayout
+        <!-- Imagen de la tarjeta -->
+        <ImageView
+            android:id="@+id/imgFoto"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorCardView"
-            android:orientation="vertical"
-            android:padding="@dimen/margenLados">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            android:src="@drawable/coleos" />
 
-            <!-- Imagen de la tarjeta -->
-            <ImageView
-                android:id="@+id/imgFoto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="fitCenter"
-                android:src="@drawable/coleos" />
+        <!-- Informacion de la tarjeta -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill">
 
-            <!-- Informacion de la tarjeta -->
+            <!-- Icono de like -->
+            <ImageButton
+                android:id="@+id/btnLike"
+                android:layout_width="@dimen/likeIcon"
+                android:layout_height="@dimen/likeIcon"
+                android:background="@drawable/like"
+                android:layout_alignParentLeft="true"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="fill">
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
 
-                <!-- Icono de like -->
-                <ImageButton
-                    android:id="@+id/btnLike"
-                    android:layout_width="@dimen/likeIcon"
-                    android:layout_height="@dimen/likeIcon"
-                    android:background="@drawable/like" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <!-- Texto para Nombre -->
+                <TextView
+                    android:id="@+id/tvNombreCV"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/pnombre"
+                    android:textSize="@dimen/telefono"
+                    android:textStyle="bold" />
 
-                    <!-- Texto para Nombre -->
-                    <TextView
-                        android:id="@+id/tvNombreCV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pnombre"
-                        android:textSize="@dimen/telefono"
-                        android:textStyle="bold"
-                        android:layout_gravity="right"/>
-
-                    <!-- Texto para Telefono -->
-                    <TextView
-                        android:id="@+id/tvTelefonoCV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/ptelefono"
-                        android:layout_gravity="right"/>
-
-                </LinearLayout>
+                <!-- Texto para Telefono -->
+                <TextView
+                    android:id="@+id/tvTelefonoCV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ptelefono" />
 
             </LinearLayout>
 
+            <!-- Texto para Likes -->
+            <TextView
+                android:id="@+id/tvLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plikes"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/telefono"/>
 
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-</RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

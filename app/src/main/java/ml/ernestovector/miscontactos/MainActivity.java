@@ -18,9 +18,6 @@ import ml.ernestovector.miscontactos.pojo.Contacto;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Contacto> contactos;
-    private RecyclerView rvContactos;
-    public ContactoAdaptador adaptador;
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -35,21 +32,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setUpViewPager();
-
-        /*
-        rvContactos = (RecyclerView) findViewById(R.id.rvContactos);
-
-        //GridLayoutManager glm = new GridLayoutManager(this, 2);
-        //listaContactos.setLayoutManager(glm);
-
-        //Muestra los objetos en una lista scrolleable hacia abajo
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rvContactos.setLayoutManager(llm);
-
-        inicializarListaContactos();
-        inicializarAdaptador();
-        */
 
         if (toolbar != null){
             setSupportActionBar(toolbar);
@@ -76,21 +58,9 @@ public class MainActivity extends AppCompatActivity {
         //Agregamos los fragments al tabLayout
         tabLayout.setupWithViewPager(viewPager);
 
-    }
-
-    public void inicializarAdaptador(){
-        adaptador = new ContactoAdaptador(contactos, this);
-        rvContactos.setAdapter(adaptador);
-    }
-
-    public void inicializarListaContactos(){
-        contactos = new ArrayList<Contacto>();
-
-        contactos.add(new Contacto(R.drawable.six_flags_s_perman,   "Ernesto Gálvez",  "55 3332 2391", "egm.vector@gmail.com"));
-        contactos.add(new Contacto(R.drawable.coleos1,              "Anahí Salgado",   "55 7777 9999", "anahi@gmail.com"));
-        contactos.add(new Contacto(R.drawable.snapdragon,           "Lori Martínez",   "55 2256 3487", "lori-carolina@hotmail.com"));
-        contactos.add(new Contacto(R.drawable.fanny,                "Estefani Monroy", "55 1845 7222", "fanny.monroy2204@gmail.com"));
-        contactos.add(new Contacto(R.drawable.dusty_miller,         "Carlos Guerrero", "55 2300 2300", "carlitos@outlook.com"));
+        //Agregamos los iconos a los Tabs
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_contacts);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_info);
 
     }
 }
