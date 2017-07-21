@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!-- Se declara la tarjeta -->
+<!-- Se declara la tarjeta -->
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cvContacto"
-    android:layout_width="@dimen/card_largo"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margenLados"
-    card_view:cardBackgroundColor="@color/cardview_light_background"
     card_view:cardCornerRadius="@dimen/corner_radius_cv"
     android:elevation="@dimen/corner_radius_cv">
 
     <!-- Se inicia la tarjeta -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/margenLados">
+        android:weightSum="1">
 
         <!-- Imagen de la tarjeta -->
         <ImageView
@@ -25,27 +24,32 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
-            android:src="@drawable/coleos" />
+            android:src="@drawable/coleos"
+            android:layout_weight="1"/>
 
         <!-- Informacion de la tarjeta -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="fill">
+            android:gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/margenLados">
 
             <!-- Icono de like -->
             <ImageButton
                 android:id="@+id/btnLike"
                 android:layout_width="@dimen/likeIcon"
                 android:layout_height="@dimen/likeIcon"
-                android:background="@drawable/like"
-                android:layout_alignParentLeft="true"/>
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/like"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:padding="@dimen/margenLados">
 
                 <!-- Texto para Nombre -->
                 <TextView
@@ -54,14 +58,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/pnombre"
                     android:textSize="@dimen/telefono"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <!-- Texto para Telefono -->
                 <TextView
                     android:id="@+id/tvTelefonoCV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ptelefono" />
+                    android:text="@string/ptelefono"/>
 
             </LinearLayout>
 
@@ -70,10 +74,10 @@
                 android:id="@+id/tvLikes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/plikes"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:textSize="@dimen/telefono"/>
+                android:text="@string/plikes"
+                android:padding="@dimen/margenLados"/>
 
         </RelativeLayout>
     </LinearLayout>

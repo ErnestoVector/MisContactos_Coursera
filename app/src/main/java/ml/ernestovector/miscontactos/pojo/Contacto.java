@@ -19,6 +19,10 @@ public class Contacto {
         this.likes = likes;
     }
 
+    public Contacto(){
+        //Constructor vacio
+    }
+
 
 //Getters y Setters-----------------------------------------------------------------------------------------------------
     public int getFoto() {
