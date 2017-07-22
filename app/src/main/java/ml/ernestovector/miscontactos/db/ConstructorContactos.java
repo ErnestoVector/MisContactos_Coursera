@@ -13,6 +13,7 @@ public class ConstructorContactos {
 //Atributos-------------------------------------------------------------------------------------------------------------
     private Context context;
     ArrayList<Contacto> contactos;
+    private static final int LIKE = 1;
 
 //Metodo constructor----------------------------------------------------------------------------------------------------
     public ConstructorContactos(Context context) {
@@ -34,7 +35,9 @@ public class ConstructorContactos {
         return db.obtenerTodosLosContactos();
     }
 
+//Metodos---------------------------------------------------------------------------------------------------------------
     public void insertarTresContactos(BaseDatos db){
+
         ContentValues contentValues = new ContentValues();
         contentValues.put(ConstanteBaseDatos.TABLE_CONTACTS_NAME, "Ernesto Gálvez");
         contentValues.put(ConstanteBaseDatos.TABLE_CONTACTS_TELEFONO, "55 3332 2391");
@@ -58,5 +61,21 @@ public class ConstructorContactos {
         contentValues.put(ConstanteBaseDatos.TABLE_CONTACTS_FOTO, R.drawable.coleos);
 
         db.insertarContacto(contentValues);
+    }
+
+    public void darLikeContacto(Contacto contacto){
+
+        BaseDatos db = new BaseDatos(context);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ConstanteBaseDatos.TABLE_LIKES_CONTACT_ID_CONTACTO, contacto.getId());
+        contentValues.put(ConstanteBaseDatos.TABLE_LIKES_CONTACT_NUMERO_LIKES, LIKE);
+
+        db.insertarLikeContacto(contentValues);
+    }
+
+    public int obtenerLikesContacto(Contacto contacto){
+
+        BaseDatos db = new BaseDatos(context);
+        return db.obtenerLikesContacto(contacto);
     }
 }

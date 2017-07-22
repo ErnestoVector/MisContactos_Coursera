@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import ml.ernestovector.miscontactos.db.ConstructorContactos;
 import ml.ernestovector.miscontactos.pojo.Contacto;
 import ml.ernestovector.miscontactos.DetalleContacto;
 import ml.ernestovector.miscontactos.R;
@@ -42,7 +43,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
 
     //Asocia cada elemento de la lista a cada view
     @Override
-    public void onBindViewHolder(ContactoViewHolder contactoViewHolder, int position) {
+    public void onBindViewHolder(final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position);
         contactoViewHolder.imgFoto.setImageResource(contacto.getFoto());
         contactoViewHolder.tvNombreCv.setText(contacto.getNombre());
@@ -54,7 +55,12 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             //Manda mensaje Toast cuando le das clic al "Like" de algun contacto
             @Override
             public void onClick(View v) {
+                //Mensaje Toast para notificar un like a un contacto
                 Toast.makeText(activity, "Diste like a: " + contacto.getNombre(), Toast.LENGTH_SHORT).show();
+                //Actualizamos el valor de likes
+                ConstructorContactos constructorContactos = new ConstructorContactos(activity);
+                constructorContactos.darLikeContacto(contacto);
+                contactoViewHolder.tvLikes.setText(constructorContactos.obtenerLikesContacto(contacto));
             }
         });
 
